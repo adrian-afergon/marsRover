@@ -1,9 +1,26 @@
 package leanmind.es;
 
+import javax.smartcardio.Card;
 import java.util.List;
 
-public class Rover {
+class Rover {
 
-    public void execute(List<Character> commands) {
+    private final Position position;
+    private final CardinalPoint cardinalPoint;
+
+    Rover(Position position, CardinalPoint cardinalPoint) {
+        this.position = position;
+        this.cardinalPoint = cardinalPoint;
+    }
+
+    void execute(List<Character> commands) {
+    }
+
+    Position position() {
+        return this.position;
+    }
+
+    CardinalPoint direction() {
+        return this.cardinalPoint;
     }
 }
