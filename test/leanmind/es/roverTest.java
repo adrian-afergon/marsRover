@@ -12,12 +12,12 @@ public class roverTest {
     public void stay_in_place_when_no_commands_are_received() {
         Rover wally = new Rover();
         List<Character> commands = new ArrayList<>();
-        int[] finalPosition = {0, 0};
-        int[] initialPosition = wally.position();
+        CardinalPoint finalPosition = new CardinalPoint(0, 0);
+        CardinalPoint initialPosition = new CardinalPoint(0,0);
 
         wally.execute(commands);
 
-        Assert.assertArrayEquals(initialPosition, finalPosition);
+        Assert.assertEquals(initialPosition, finalPosition);
     }
 
 }
