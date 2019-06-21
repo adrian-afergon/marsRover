@@ -1,6 +1,5 @@
 package leanmind.es;
 
-import javax.smartcardio.Card;
 import java.util.List;
 
 class Rover {

@@ -1,6 +1,7 @@
 package leanmind.es;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -8,11 +9,19 @@ import java.util.List;
 
 public class RoverTest {
 
+    private Rover wally;
+    private Position initialPosition;
+    private CardinalPoint initialCardinalPoint;
+
+    @Before
+    public void initializeRover() {
+        initialPosition = new Position(0, 0);
+        initialCardinalPoint = CardinalPoint.NORTH;
+        wally = new Rover(initialPosition, initialCardinalPoint);
+    }
+
     @Test
     public void stay_in_place_if_no_commands_are_received() {
-        Position initialPosition = new Position(0,0);
-        CardinalPoint initialCardinalPoint = CardinalPoint.NORTH;
-        Rover wally = new Rover(initialPosition, initialCardinalPoint);
         List<Character> commands = new ArrayList<>();
 
         wally.execute(commands);
@@ -23,15 +32,12 @@ public class RoverTest {
 
     @Test
     public void does_not_turn_if_no_commands_are_received() {
-        Position initialPosition = new Position(0,0);
-        CardinalPoint initialCardinalPoint = CardinalPoint.NORTH;
-        Rover wally = new Rover(initialPosition, initialCardinalPoint);
         List<Character> commands = new ArrayList<>();
 
         wally.execute(commands);
         CardinalPoint currentDirection = wally.direction();
 
-        Assert.assertEquals(CardinalPoint.NORTH, currentDirection);
+        Assert.assertEquals(initialCardinalPoint, currentDirection);
     }
 
 }
