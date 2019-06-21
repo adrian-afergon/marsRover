@@ -13,7 +13,9 @@ class Rover {
     }
 
     void execute(List<Command> commands) {
-        this.position = new Position(0, 1);
+        for (int i = 0; i < commands.size(); i++) {
+            this.position = new Position(0, this.position.getY() + 1);
+        }
     }
 
     Position position() {

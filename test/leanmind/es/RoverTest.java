@@ -44,10 +44,11 @@ public class RoverTest {
     public void move_forwards() {
         List<Command> commands = new ArrayList<>();
         commands.add(Command.MOVE_FORWARDS);
+        commands.add(Command.MOVE_FORWARDS);
 
         wally.execute(commands);
         Position currentPosition = wally.position();
-        Position expectedDirection = new Position(0, 1);
+        Position expectedDirection = new Position(0, 2);
 
         Assert.assertEquals(expectedDirection, currentPosition);
     }

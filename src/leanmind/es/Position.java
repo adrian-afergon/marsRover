@@ -17,4 +17,12 @@ public class Position {
         }
         return false;
     }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
 }
