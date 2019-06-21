@@ -14,8 +14,17 @@ class Rover {
 
     void execute(List<Command> commands) {
         for (Command command : commands) {
-            moveForwards();
+            if (command.isForwards()) {
+                moveForwards();
+            } else if (command.isBackwards()) {
+                moveBackwards();
+            }
         }
+    }
+
+    private void moveBackwards() {
+        int currentY = this.position.getY();
+        this.position = new Position(0, currentY - 1);
     }
 
     private void moveForwards() {
