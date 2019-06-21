@@ -13,9 +13,14 @@ class Rover {
     }
 
     void execute(List<Command> commands) {
-        for (int i = 0; i < commands.size(); i++) {
-            this.position = new Position(0, this.position.getY() + 1);
+        for (Command command : commands) {
+            moveForwards();
         }
+    }
+
+    private void moveForwards() {
+        int currentY = this.position.getY();
+        this.position = new Position(0, currentY + 1);
     }
 
     Position position() {
