@@ -22,7 +22,7 @@ public class RoverTest {
 
     @Test
     public void stay_in_place_if_no_commands_are_received() {
-        List<Character> commands = new ArrayList<>();
+        List<Command> commands = new ArrayList<>();
 
         wally.execute(commands);
         Position finalPosition = wally.position();
@@ -32,12 +32,24 @@ public class RoverTest {
 
     @Test
     public void does_not_turn_if_no_commands_are_received() {
-        List<Character> commands = new ArrayList<>();
+        List<Command> commands = new ArrayList<>();
 
         wally.execute(commands);
         CardinalPoint currentDirection = wally.direction();
 
         Assert.assertEquals(initialCardinalPoint, currentDirection);
+    }
+
+    @Test
+    public void move_forwards() {
+        List<Command> commands = new ArrayList<>();
+        commands.add(Command.MOVE_FORWARDS);
+
+        wally.execute(commands);
+        Position currentPosition = wally.position();
+        Position expectedDirection = new Position(0, 1);
+
+        Assert.assertEquals(expectedDirection, currentPosition);
     }
 
 }
